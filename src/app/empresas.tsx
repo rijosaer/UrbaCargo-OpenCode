@@ -47,6 +47,8 @@ export default function Empresas() {
       destinationCoord,
       price,
       distance,
+      scheduledDate: date,
+      scheduledTime: time,
       estimatedTime: company.baseTime,
       cargo,
       weight,

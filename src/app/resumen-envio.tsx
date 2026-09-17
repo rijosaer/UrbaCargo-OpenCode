@@ -86,6 +86,12 @@ export default function ResumenEnvio() {
         <Row label="Costo" value={money(shipment.price)} />
         <Row label="Fecha" value={shipment.date} />
         <Row label="Hora" value={shipment.time} />
+        {shipment.scheduledDate ? (
+          <Row
+            label="Entregar el"
+            value={`${shipment.scheduledDate} · ${shipment.scheduledTime ?? ""}`}
+          />
+        ) : null}
         <Row label="Distancia" value={`${shipment.distance} km`} />
         <Row label="Tiempo estimado" value={`${shipment.estimatedTime} min`} />
       </View>

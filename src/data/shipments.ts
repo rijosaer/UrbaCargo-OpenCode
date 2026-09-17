@@ -33,6 +33,8 @@ export interface Shipment {
   estimatedTime: number;
   date: string;
   time: string;
+  scheduledDate?: string;
+  scheduledTime?: string;
   cargo: string;
   weight: string;
   size: string;
