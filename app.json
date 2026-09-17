@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "UrbaCargo-OpenCode",
-    "slug": "UrbaCargo-OpenCode",
+    "name": "UrbaCargo",
+    "slug": "UrbaCargo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "urbacargoopencode",
-    "userInterfaceStyle": "automatic",
+    "scheme": "urbacargo",
+    "userInterfaceStyle": "light",
     "ios": {
       "icon": "./assets/expo.icon"
     },
@@ -32,10 +32,16 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      "@react-native-community/datetimepicker",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "UrbaCargo usa tu ubicación para calcular el origen del envío."
+        }
       ]
     ],
     "experiments": {
-      "typedRoutes": true,
       "reactCompiler": true
     }
   }

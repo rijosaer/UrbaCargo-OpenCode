@@ -1,18 +1,36 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { AppProvider } from "@/context/AppContext";
+import { colors } from "@/theme";
 
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <AppProvider>
+        <StatusBar style="dark" />
+        <Stack
+          screenOptions={{
+            headerStyle: { backgroundColor: colors.white },
+            headerTintColor: colors.primaryDark,
+            headerTitleStyle: { fontWeight: "800" },
+            headerShadowVisible: false,
+            contentStyle: { backgroundColor: colors.bg },
+          }}
+        >
+          <Stack.Screen name="login" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="nuevo-envio" options={{ title: "Nuevo envío" }} />
+          <Stack.Screen name="empresas" options={{ title: "Empresas disponibles" }} />
+          <Stack.Screen name="resumen-envio" options={{ title: "Resumen del envío" }} />
+          <Stack.Screen name="seguimiento/[id]" options={{ title: "Seguimiento GPS" }} />
+          <Stack.Screen
+            name="modal"
+            options={{ presentation: "modal", title: "Acerca de UrbaCargo" }}
+          />
+        </Stack>
+      </AppProvider>
+    </SafeAreaProvider>
   );
 }
